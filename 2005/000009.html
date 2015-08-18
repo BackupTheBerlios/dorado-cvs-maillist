@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Dorado-cvs] core/izpack input.xml,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/dorado-cvs/2005/index.html" >
+   <LINK REL="made" HREF="mailto:dorado-cvs%40lists.berlios.de?Subject=Re%3A%20%5BDorado-cvs%5D%20core/izpack%20input.xml%2C1.1%2C1.2&In-Reply-To=%3C200508212149.j7LLnX615684%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000008.html">
+   <LINK REL="Next"  HREF="000012.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Dorado-cvs] core/izpack input.xml,1.1,1.2</H1>
+    <B>thorque</B> 
+    <A HREF="mailto:dorado-cvs%40lists.berlios.de?Subject=Re%3A%20%5BDorado-cvs%5D%20core/izpack%20input.xml%2C1.1%2C1.2&In-Reply-To=%3C200508212149.j7LLnX615684%40bat.berlios.de%3E"
+       TITLE="[Dorado-cvs] core/izpack input.xml,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Aug 21 23:49:33 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000008.html">[Dorado-cvs] core/izpack dorado.izpack.properties,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000012.html">[Dorado-cvs] core/izpack/i18n deu.xml,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/dorado/core/izpack
+In directory sheep:/tmp/cvs-serv15143/izpack
+
+Modified Files:
+	input.xml 
+Log Message:
+Adding field for dorado_jmx_port
+
+Index: input.xml
+===================================================================
+RCS file: /cvsroot/dorado/core/izpack/input.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** input.xml	18 Aug 2005 14:27:25 -0000	1.1
+--- input.xml	21 Aug 2005 21:49:31 -0000	1.2
+***************
+*** 82,85 ****
+--- 82,96 ----
+    				class=&quot;com.izforge.izpack.util.PortValidator&quot; 
+    				txt=&quot;port.validator&quot;/&gt;	
++ 		&lt;/field&gt;	
++ 		&lt;space/&gt;
++ 		&lt;field type=&quot;rule&quot; 
++ 			variable=&quot;dorado_jmx_port&quot;&gt;
++ 			&lt;description id=&quot;panel1.field6.description&quot;/&gt;
++   			&lt;spec id=&quot;panel1.field6.label&quot; 
++   				set=&quot;0:0:com.izforge.izpack.util.PortProcessor&quot; 
++   				layout=&quot;N:5:5&quot;/&gt;
++   			&lt;validator 
++   				class=&quot;com.izforge.izpack.util.PortValidator&quot; 
++   				txt=&quot;port.validator&quot;/&gt;	
+  		&lt;/field&gt;		
+  	&lt;/panel&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000008.html">[Dorado-cvs] core/izpack dorado.izpack.properties,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000012.html">[Dorado-cvs] core/izpack/i18n deu.xml,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/dorado-cvs">More information about the Dorado-cvs
+mailing list</a><br>
+</body></html>

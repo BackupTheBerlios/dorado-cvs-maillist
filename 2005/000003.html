@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Dorado-cvs] documentation/src/documentation/content/xdocs/docs dev-guide.xml,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/dorado-cvs/2005/index.html" >
+   <LINK REL="made" HREF="mailto:dorado-cvs%40lists.berlios.de?Subject=Re%3A%20%5BDorado-cvs%5D%20documentation/src/documentation/content/xdocs/docs%20dev-guide.xml%2CNONE%2C1.1&In-Reply-To=%3C200508182159.j7ILxf625421%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000002.html">
+   <LINK REL="Next"  HREF="000004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Dorado-cvs] documentation/src/documentation/content/xdocs/docs dev-guide.xml,NONE,1.1</H1>
+    <B>thorque</B> 
+    <A HREF="mailto:dorado-cvs%40lists.berlios.de?Subject=Re%3A%20%5BDorado-cvs%5D%20documentation/src/documentation/content/xdocs/docs%20dev-guide.xml%2CNONE%2C1.1&In-Reply-To=%3C200508182159.j7ILxf625421%40bat.berlios.de%3E"
+       TITLE="[Dorado-cvs] documentation/src/documentation/content/xdocs/docs dev-guide.xml,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 18 23:59:41 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000002.html">[Dorado-cvs] documentation/src/documentation/content/xdocs downloads.xml,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000004.html">[Dorado-cvs] documentation/src/documentation/content/xdocs/docs connector.xml,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/dorado/documentation/src/documentation/content/xdocs/docs
+In directory sheep:/tmp/cvs-serv10826/src/documentation/content/xdocs/docs
+
+Added Files:
+	dev-guide.xml 
+Log Message:
+Initial Import
+
+--- NEW FILE: dev-guide.xml ---
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE document PUBLIC &quot;-//APACHE//DTD Documentation V2.0//EN&quot; &quot;<A HREF="http://forrest.apache.org/dtd/document-v20.dtd">http://forrest.apache.org/dtd/document-v20.dtd</A>&quot;&gt;
+&lt;document&gt;
+&lt;header&gt;
+&lt;title&gt;Developer-Guide&lt;/title&gt;
+&lt;abstract&gt;Wenn Sie als Entwickler zu diesem Projekt etwas beitragen wollen oder nur mit den aktuellsten Sourcen arbeiten wollen, so m&#195;&#188;ssen Sie das Projekt aus unserem CVS-Repository auschecken. Dies und weitere Hinweise gibt dieser Artikel.&lt;/abstract&gt;
+&lt;meta name=&quot;keywords&quot;&gt;dorado tomcat installation developer guide&lt;/meta&gt;
+&lt;meta name=&quot;description&quot;&gt;Eine Anleitung f&#195;&#188;r Entwickler, die mit den Sourcen arbeiten wollen&lt;/meta&gt;
+&lt;meta name=&quot;author&quot;&gt;Thorsten Kamann&lt;/meta&gt;
+&lt;/header&gt;
+&lt;body&gt;
+&lt;section id=&quot;N67079&quot;&gt;
+&lt;title&gt;Systemvoraussetzungen&lt;/title&gt;
+&lt;p&gt;Um mit dem Dorado-Projekt arbeiten zu k&#195;&#182;nnen ist nicht viel erforderlich. Fehlende Komponenten werden automatisch bei der Initialisierung geladen. Sie m&#195;&#188;ssen nur folgende Komponenten installiert haben:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+    &lt;p&gt;Ein &lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://java.sun.com/">http://java.sun.com/</A>&quot; title=&quot;JAVA SDK 1.4&quot;&gt;JAVA SDK 1.4&lt;/a&gt; oder gr&#195;&#182;sser (empfohlen ist ein JAVA5-SDK)&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;
+&lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://ant.apache.org/">http://ant.apache.org/</A>&quot; title=&quot;Apache Ant&quot;&gt;Ant&lt;/a&gt; in einer aktuellen Version (empfohlen ist 1.6.5)&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;
+&lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://forrest.apache.org/">http://forrest.apache.org/</A>&quot; title=&quot;Apache Forrest&quot;&gt;Apache Forrest&lt;/a&gt; (Version 0.7; siehe auch die Anleitung etwas weiter unten)&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;
+&lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://eclipse.org/">http://eclipse.org/</A>&quot; title=&quot;Eclipse 3.1&quot;&gt;Eclipse 3.1&lt;/a&gt; (optional)&lt;/p&gt;
+   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p/&gt;
+&lt;p/&gt;
+&lt;/section&gt;
+&lt;section id=&quot;N67155&quot;&gt;
+&lt;title&gt;CVS-Repository auschecken&lt;/title&gt;
+&lt;p&gt;Wenn Sie alle Systemvoraussetzungen erf&#195;&#188;llt haben, k&#195;&#182;nnen Sie die Projektsourcen aus dem CVS-Repository auschecken. Unter Windows k&#195;&#182;nnen Sie dazu TortoiseCVS benutzen. Unter Linux benutzen Sie einfach den CVS-Kommandozeilenclient.&lt;/p&gt;
+&lt;p&gt;Um mit dem CVS-Repository Kontakt aufzunehmen, benutzen Sie diese Daten:&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;Host:&lt;/strong&gt; &lt;em&gt;cvs.dorado.berlios.de&lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;Repository:&lt;em&gt; &lt;/em&gt;
+&lt;em&gt;/cvsroot/dorado&lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;Benutzer:&lt;em&gt; &lt;/em&gt;
+&lt;em&gt;anonymous&lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;Servertyp:&lt;em&gt; pserver&lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;em/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Mit dem CVS-Client f&#195;&#188;r Linux s&#195;&#164;he der Aufruf so aus:&lt;/em&gt;
+&lt;/p&gt;
+&lt;source&gt;
+&lt;em&gt;cvs -d:pserver:<A HREF="https://lists.berlios.de/mailman/listinfo/dorado-cvs">anonymous at cvs.dorado.berlios.de</A>:/cvsroot/dorado login&lt;br/&gt;cvs -z3 -d:pserver:<A HREF="https://lists.berlios.de/mailman/listinfo/dorado-cvs">anonymous at cvs.dorado.berlios.de</A>:/cvsroot/dorado co .&lt;/em&gt;
+&lt;/source&gt;
+&lt;p/&gt;
+&lt;p/&gt;
+&lt;/section&gt;
+&lt;section id=&quot;N67244&quot;&gt;
+&lt;title&gt;Lokales Repository initialisieren&lt;/title&gt;
+&lt;p&gt;Nachdem der Checkout erfolgreich abgeschlossen worden ist, m&#195;&#188;ssen Sie Ihr lokales Repository noch initialisieren. Dabei werden ben&#195;&#182;tigte Bibliotheken aus dem Internet geladen und in Ihr lokales Repository gespeichert.&lt;/p&gt;
+&lt;p&gt;Dazu wechseln Sie in das Verzeichnis &lt;code&gt;ROOT&lt;/code&gt;:&lt;/p&gt;
+&lt;source&gt;cd ROOT&lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;Dort rufen Sie das Target &lt;code&gt;-init-repository&lt;/code&gt; in der &lt;code&gt;build.xml&lt;/code&gt; aus:&lt;/p&gt;
+&lt;source&gt;ant -init-repository&lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;Dieser Vorgang dauert eine Weile. Nachdem er beendet wurde k&#195;&#182;nnen Sie das Projekt erstellen:&lt;/p&gt;
+&lt;source&gt;ant dist&lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;Danach finden Sie unter dem neu erstellten Verzeichnis &lt;code&gt;dist&lt;/code&gt; die beiden Installer. Die Dokumentation finden Sie unter &lt;code&gt;build/documentation/build/site&lt;/code&gt;.&lt;/p&gt;
+&lt;p/&gt;
+&lt;p/&gt;
+&lt;/section&gt;
+&lt;section id=&quot;N67316&quot;&gt;
+&lt;title&gt;Aufbau des Projekts&lt;/title&gt;
+&lt;p&gt;Unser Projekt ist modular aufgebaut. D.h. es besteht aus mehreren Subprojekten, die sogenannten Module:&lt;/p&gt;
+&lt;p&gt;DORADO&lt;/p&gt;
+&lt;p&gt;|----ROOT (enth&#195;&#164;lt &#195;&#188;bergeordnete Dateien)&lt;/p&gt;
+&lt;p&gt;|----core (enth&#195;&#164;lt die Dateien f&#195;&#188;r die Installer)&lt;/p&gt;
+&lt;p&gt;|----documentation (enth&#195;&#164;lt die Dokumentationsdateien)&lt;/p&gt;
+&lt;p/&gt;
+&lt;p&gt;Zus&#195;&#164;tzlich zu diesen Modulen erzeugen die Build-Skripte noch zus&#195;&#164;tzlich Verzeichnisse:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+    &lt;p&gt;
+&lt;strong&gt;build&lt;/strong&gt;
+&lt;br/&gt;Hier werden die Dateien f&#195;&#188;r den Buildprozess hinein kopiert.&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;
+&lt;strong&gt;dist&lt;/strong&gt;
+&lt;br/&gt;Hier finden Sie die Dateien, die f&#195;&#188;r die Distribution ver&#195;&#182;ffentlicht werden&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;
+&lt;strong&gt;temp&lt;/strong&gt;
+&lt;br/&gt;Tempor&#195;&#164;re Dateien&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;
+&lt;strong&gt;repository&lt;/strong&gt;
+&lt;br/&gt;Enth&#195;&#164;lt die zus&#195;&#164;tzlichen Bibliotheken, die das Target -init-repository l&#195;&#164;dt.&lt;/p&gt;
+   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p/&gt;
+&lt;p/&gt;
+&lt;/section&gt;
+&lt;section id=&quot;N67402&quot;&gt;
+&lt;title&gt;Installation von Apache Forrest&lt;/title&gt;
+&lt;p&gt;Wir benutzen Apache Forrest als Dokumentationsframework. Falls Sie dies nicht bei sich installiert haben, m&#195;&#188;ssen Sie dies noch vor dem ersten build tun. Das ist mit wenigen Schritten getan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+    &lt;p&gt;Download des aktuellen Apache Forrest Release&lt;br/&gt;Windows: &lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip">http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip</A>&quot; title=&quot;&quot;&gt;<A HREF="http://apache.easy-webs.de/forrest/&lt;/a">http://apache.easy-webs.de/forrest/&lt;/a</A>&gt;
+&lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip">http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip</A>&quot; title=&quot;&quot;&gt;apache&lt;/a&gt;
+&lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip">http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip</A>&quot; title=&quot;&quot;&gt;-forrest-0.7.zip&lt;/a&gt;
+&lt;br/&gt;Linux: &lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz">http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz</A>&quot; title=&quot;&quot;&gt;<A HREF="http://apache.easy-webs.de/forrest/&lt;/a">http://apache.easy-webs.de/forrest/&lt;/a</A>&gt;
+&lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz">http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz</A>&quot; title=&quot;&quot;&gt;apache&lt;/a&gt;
+&lt;a class=&quot;fork&quot; href=&quot;<A HREF="http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz">http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz</A>&quot; title=&quot;&quot;&gt;-forrest-0.7.tar.gz&lt;/a&gt;
+&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;Entpacken des Archivs in ein beliebiges Verzeichnis&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;Falls Sie das Dorado-Projekt bisher noch nicht ausgecheckt haben, dann m&#195;&#188;ssen Sie das jetzt tun.&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;Jetzt &#195;&#182;ffnen Sie die Properties-Datei ROOT/project_local.properties. Falls diese Datei nicht existiert k&#195;&#182;nnen Sie die mit einem einfachen Texteditor erstellen.&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;Tragen Sie die folgende Zeile in diese Datei ein:&lt;br/&gt;forrest.home=PFAD_ZUR_FORREST_INSTALLATION&lt;/p&gt;
+   &lt;/li&gt;
+&lt;li&gt;
+    &lt;p&gt;Jetzt k&#195;&#182;nnen Sie das Projekt erstellen:&lt;br/&gt;ant -f ROOT/build.xml&lt;/p&gt;
+   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;/body&gt;
+&lt;/document&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000002.html">[Dorado-cvs] documentation/src/documentation/content/xdocs downloads.xml,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000004.html">[Dorado-cvs] documentation/src/documentation/content/xdocs/docs connector.xml,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/dorado-cvs">More information about the Dorado-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,890 @@
+From nobody at sheep.berlios.de  Thu Aug 18 17:12:30 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Thu, 18 Aug 2005 17:12:30 +0200
+Subject: [Dorado-cvs] core/tomcat/conf server.xml,1.1,1.2
+Message-ID: <200508181512.j7IFCU613601@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/tomcat/conf
+In directory sheep:/tmp/cvs-serv25128/tomcat/conf
+
+Modified Files:
+	server.xml 
+Log Message:
+Adding accesslogvalve config
+
+Index: server.xml
+===================================================================
+RCS file: /cvsroot/dorado/core/tomcat/conf/server.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** server.xml	18 Aug 2005 14:27:26 -0000	1.1
+--- server.xml	18 Aug 2005 15:12:27 -0000	1.2
+***************
+*** 18,22 ****
+        		<Realm 
+        			className="org.apache.catalina.realm.UserDatabaseRealm"
+! 				resourceName="UserDatabase" />
+        		<Host 
+        			name="localhost" 
+--- 18,30 ----
+        		<Realm 
+        			className="org.apache.catalina.realm.UserDatabaseRealm"
+! 				resourceName="UserDatabase" />
+! 			<Valve 
+! 				className="org.apache.catalina.valves.AccessLogValve"
+! 				directory="logs/Catalina/localhost"
+! 				prefix="access." 
+! 				suffix=".log"
+! 				pattern="common" 
+! 				resolveHosts="false"
+! 			/>
+        		<Host 
+        			name="localhost" 
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 18 23:58:52 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Thu, 18 Aug 2005 23:58:52 +0200
+Subject: [Dorado-cvs] documentation/src/documentation/content/xdocs site.xml,1.1,1.2
+Message-ID: <200508182158.j7ILwq625391@bat.berlios.de>
+
+Update of /cvsroot/dorado/documentation/src/documentation/content/xdocs
+In directory sheep:/tmp/cvs-serv10700/src/documentation/content/xdocs
+
+Modified Files:
+	site.xml 
+Log Message:
+Adding the connector and dev-guide entry
+
+Index: site.xml
+===================================================================
+RCS file: /cvsroot/dorado/documentation/src/documentation/content/xdocs/site.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** site.xml	18 Aug 2005 14:24:03 -0000	1.1
+--- site.xml	18 Aug 2005 21:58:49 -0000	1.2
+***************
+*** 43,51 ****
+     				href="console-installer.html"
+     				description="Anleitung zum Konsolen-Installer"/>
+!    				
+     			<properties label="Properties Referenz"
+     				href="properties.html"
+     				description="Referenz aller Konfigurationseinstellungen"/>
+     		</installation>
+     </docs>
+     
+--- 43,56 ----
+     				href="console-installer.html"
+     				description="Anleitung zum Konsolen-Installer"/>
+!    			<connector label="Tomcat-Connector"
+!    				href="connector.html"
+!    				description="Installation des Tomcat-Connector"/>   				
+     			<properties label="Properties Referenz"
+     				href="properties.html"
+     				description="Referenz aller Konfigurationseinstellungen"/>
+     		</installation>
++    		<dev-guide label="Developer Guide"
++    			href="dev-guide.html"
++    			description="Anleitung f??r Entwickler"/>
+     </docs>
+     
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 18 23:59:26 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Thu, 18 Aug 2005 23:59:26 +0200
+Subject: [Dorado-cvs] documentation/src/documentation/content/xdocs downloads.xml,1.1,1.2
+Message-ID: <200508182159.j7ILxQ625413@bat.berlios.de>
+
+Update of /cvsroot/dorado/documentation/src/documentation/content/xdocs
+In directory sheep:/tmp/cvs-serv10773/src/documentation/content/xdocs
+
+Modified Files:
+	downloads.xml 
+Log Message:
+Adding advice for the new dev-guide
+
+Index: downloads.xml
+===================================================================
+RCS file: /cvsroot/dorado/documentation/src/documentation/content/xdocs/downloads.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** downloads.xml	18 Aug 2005 14:24:03 -0000	1.1
+--- downloads.xml	18 Aug 2005 21:59:23 -0000	1.2
+***************
+*** 125,128 ****
+--- 125,133 ----
+  			</p>
+  			<source>cvs	-d:pserver:anonymous at cvs.dorado.berlios.de:/cvsroot/dorado login<br />cvs -z3 -d:pserver:anonymous at cvs.dorado.berlios.de:/cvsroot/dorado co .</source>
++ 			<p>
++ 			Beachten Sie hier auch unseren 
++ 			<a class="fork" href="docs/dev-guide.html" title="Develoepr Guide">
++ 			Developer-Guide</a>
++ 			</p>
+  		</section>
+  	</body>
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 18 23:59:41 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Thu, 18 Aug 2005 23:59:41 +0200
+Subject: [Dorado-cvs] documentation/src/documentation/content/xdocs/docs dev-guide.xml,NONE,1.1
+Message-ID: <200508182159.j7ILxf625421@bat.berlios.de>
+
+Update of /cvsroot/dorado/documentation/src/documentation/content/xdocs/docs
+In directory sheep:/tmp/cvs-serv10826/src/documentation/content/xdocs/docs
+
+Added Files:
+	dev-guide.xml 
+Log Message:
+Initial Import
+
+--- NEW FILE: dev-guide.xml ---
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V2.0//EN" "http://forrest.apache.org/dtd/document-v20.dtd">
+<document>
+<header>
+<title>Developer-Guide</title>
+<abstract>Wenn Sie als Entwickler zu diesem Projekt etwas beitragen wollen oder nur mit den aktuellsten Sourcen arbeiten wollen, so m??ssen Sie das Projekt aus unserem CVS-Repository auschecken. Dies und weitere Hinweise gibt dieser Artikel.</abstract>
+<meta name="keywords">dorado tomcat installation developer guide</meta>
+<meta name="description">Eine Anleitung f??r Entwickler, die mit den Sourcen arbeiten wollen</meta>
+<meta name="author">Thorsten Kamann</meta>
+</header>
+<body>
+<section id="N67079">
+<title>Systemvoraussetzungen</title>
+<p>Um mit dem Dorado-Projekt arbeiten zu k??nnen ist nicht viel erforderlich. Fehlende Komponenten werden automatisch bei der Initialisierung geladen. Sie m??ssen nur folgende Komponenten installiert haben:</p>
+<ul>
+<li>
+    <p>Ein <a class="fork" href="http://java.sun.com/" title="JAVA SDK 1.4">JAVA SDK 1.4</a> oder gr??sser (empfohlen ist ein JAVA5-SDK)</p>
+   </li>
+<li>
+    <p>
+<a class="fork" href="http://ant.apache.org/" title="Apache Ant">Ant</a> in einer aktuellen Version (empfohlen ist 1.6.5)</p>
+   </li>
+<li>
+    <p>
+<a class="fork" href="http://forrest.apache.org/" title="Apache Forrest">Apache Forrest</a> (Version 0.7; siehe auch die Anleitung etwas weiter unten)</p>
+   </li>
+<li>
+    <p>
+<a class="fork" href="http://eclipse.org/" title="Eclipse 3.1">Eclipse 3.1</a> (optional)</p>
+   </li>
+</ul>
+<p/>
+<p/>
+</section>
+<section id="N67155">
+<title>CVS-Repository auschecken</title>
+<p>Wenn Sie alle Systemvoraussetzungen erf??llt haben, k??nnen Sie die Projektsourcen aus dem CVS-Repository auschecken. Unter Windows k??nnen Sie dazu TortoiseCVS benutzen. Unter Linux benutzen Sie einfach den CVS-Kommandozeilenclient.</p>
+<p>Um mit dem CVS-Repository Kontakt aufzunehmen, benutzen Sie diese Daten:</p>
+<p>
+<strong>Host:</strong> <em>cvs.dorado.berlios.de</em>
+</p>
+<p>Repository:<em> </em>
+<em>/cvsroot/dorado</em>
+</p>
+<p>Benutzer:<em> </em>
+<em>anonymous</em>
+</p>
+<p>Servertyp:<em> pserver</em>
+</p>
+<p>
+<em/>
+</p>
+<p>
+<em>Mit dem CVS-Client f??r Linux s??he der Aufruf so aus:</em>
+</p>
+<source>
+<em>cvs -d:pserver:anonymous at cvs.dorado.berlios.de:/cvsroot/dorado login<br/>cvs -z3 -d:pserver:anonymous at cvs.dorado.berlios.de:/cvsroot/dorado co .</em>
+</source>
+<p/>
+<p/>
+</section>
+<section id="N67244">
+<title>Lokales Repository initialisieren</title>
+<p>Nachdem der Checkout erfolgreich abgeschlossen worden ist, m??ssen Sie Ihr lokales Repository noch initialisieren. Dabei werden ben??tigte Bibliotheken aus dem Internet geladen und in Ihr lokales Repository gespeichert.</p>
+<p>Dazu wechseln Sie in das Verzeichnis <code>ROOT</code>:</p>
+<source>cd ROOT</source>
+<p/>
+<p>Dort rufen Sie das Target <code>-init-repository</code> in der <code>build.xml</code> aus:</p>
+<source>ant -init-repository</source>
+<p/>
+<p>Dieser Vorgang dauert eine Weile. Nachdem er beendet wurde k??nnen Sie das Projekt erstellen:</p>
+<source>ant dist</source>
+<p/>
+<p>Danach finden Sie unter dem neu erstellten Verzeichnis <code>dist</code> die beiden Installer. Die Dokumentation finden Sie unter <code>build/documentation/build/site</code>.</p>
+<p/>
+<p/>
+</section>
+<section id="N67316">
+<title>Aufbau des Projekts</title>
+<p>Unser Projekt ist modular aufgebaut. D.h. es besteht aus mehreren Subprojekten, die sogenannten Module:</p>
+<p>DORADO</p>
+<p>|----ROOT (enth??lt ??bergeordnete Dateien)</p>
+<p>|----core (enth??lt die Dateien f??r die Installer)</p>
+<p>|----documentation (enth??lt die Dokumentationsdateien)</p>
+<p/>
+<p>Zus??tzlich zu diesen Modulen erzeugen die Build-Skripte noch zus??tzlich Verzeichnisse:</p>
+<ul>
+<li>
+    <p>
+<strong>build</strong>
+<br/>Hier werden die Dateien f??r den Buildprozess hinein kopiert.</p>
+   </li>
+<li>
+    <p>
+<strong>dist</strong>
+<br/>Hier finden Sie die Dateien, die f??r die Distribution ver??ffentlicht werden</p>
+   </li>
+<li>
+    <p>
+<strong>temp</strong>
+<br/>Tempor??re Dateien</p>
+   </li>
+<li>
+    <p>
+<strong>repository</strong>
+<br/>Enth??lt die zus??tzlichen Bibliotheken, die das Target -init-repository l??dt.</p>
+   </li>
+</ul>
+<p/>
+<p/>
+</section>
+<section id="N67402">
+<title>Installation von Apache Forrest</title>
+<p>Wir benutzen Apache Forrest als Dokumentationsframework. Falls Sie dies nicht bei sich installiert haben, m??ssen Sie dies noch vor dem ersten build tun. Das ist mit wenigen Schritten getan:</p>
+<ul>
+<li>
+    <p>Download des aktuellen Apache Forrest Release<br/>Windows: <a class="fork" href="http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip" title="">http://apache.easy-webs.de/forrest/</a>
+<a class="fork" href="http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip" title="">apache</a>
+<a class="fork" href="http://apache.easy-webs.de/forrest/apache-forrest-0.7.zip" title="">-forrest-0.7.zip</a>
+<br/>Linux: <a class="fork" href="http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz" title="">http://apache.easy-webs.de/forrest/</a>
+<a class="fork" href="http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz" title="">apache</a>
+<a class="fork" href="http://apache.easy-webs.de/forrest/apache-forrest-0.7.tar.gz" title="">-forrest-0.7.tar.gz</a>
+</p>
+   </li>
+<li>
+    <p>Entpacken des Archivs in ein beliebiges Verzeichnis</p>
+   </li>
+<li>
+    <p>Falls Sie das Dorado-Projekt bisher noch nicht ausgecheckt haben, dann m??ssen Sie das jetzt tun.</p>
+   </li>
+<li>
+    <p>Jetzt ??ffnen Sie die Properties-Datei ROOT/project_local.properties. Falls diese Datei nicht existiert k??nnen Sie die mit einem einfachen Texteditor erstellen.</p>
+   </li>
+<li>
+    <p>Tragen Sie die folgende Zeile in diese Datei ein:<br/>forrest.home=PFAD_ZUR_FORREST_INSTALLATION</p>
+   </li>
+<li>
+    <p>Jetzt k??nnen Sie das Projekt erstellen:<br/>ant -f ROOT/build.xml</p>
+   </li>
+</ul>
+</section>
+</body>
+</document>
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 18 23:59:56 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Thu, 18 Aug 2005 23:59:56 +0200
+Subject: [Dorado-cvs] documentation/src/documentation/content/xdocs/docs connector.xml,NONE,1.1
+Message-ID: <200508182159.j7ILxu625425@bat.berlios.de>
+
+Update of /cvsroot/dorado/documentation/src/documentation/content/xdocs/docs
+In directory sheep:/tmp/cvs-serv10873/src/documentation/content/xdocs/docs
+
+Added Files:
+	connector.xml 
+Log Message:
+Initial Import
+
+--- NEW FILE: connector.xml ---
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V2.0//EN" "http://forrest.apache.org/dtd/document-v20.dtd">
+<document>
+<header>
+<title>Tomcat-Connector</title>
+<abstract>Tomcat soll meistens nicht als vollwertiger Webserver verwendet werden (obwohl dies ohne weiteres m??glich ist), sondern nur im Hintergrund arbeiten. Dazu muss der vorhandene Webserver mit dem Tomcat verbunden werden. Wie das geht beschreibt dieser Artikel.</abstract>
+<meta name="keywords">webserver dorado tomcat installation jk mod_jk iis apache</meta>
+<meta name="description">Anbindung des Tomcats an einen Webserver</meta>
+<meta name="author">Thorsten Kamann</meta>
+</header>
+<body>
+<section id="N66620">
+<title>Einf??hrung</title>
+<p>Der Tomcat-Connector besteht aus 2 Einzelbestandteilen. Ein teil ist in Java geschrieben und ist bereits in Tomcat integriert. Der andere Teil ist in C geschrieben und stellt die Verbindung zwischen dem Webserver und Tomcat her.</p>
+<p>Auf Linux/Unix- Systemen muss der C-Teil kompiliert werden. Auf Win32-Systemen existieren schon fertige Binaries. Den Kompiliervorgang st??sst das Installationsskript an. Sie m??ssen nur sicherstellen, dass ein GCC-Compiler und Utomake vorhanden sind.</p>
+</section>
+<section id="N66633">
+<title>Apache2 unter Linux</title>
+<p>Das Installationsscript finden Sie unter <code>$DORADO_INSTALL_DIR/installer/tomcat-connector/bin/install-jk-apache2-unix.sh</code>. Sie brauchen dieses Skript einfach nur ausf??hren: </p>
+<source>&gt;cd $DORADO_INSTALL_DIR/installer/tomcat-connector/bin<br/>&gt;./install-jk-apache2-unix.sh </source>
+<p/>
+<p>Nach Beendigung des Skripts k??nnen Sie die Beispielanwendungen von Tomcat auch ohne Portangabe aufrufen: </p>
+<p>
+<strong>http://localhost/jsp-examples</strong> </p>
+<p>
+<strong>http://localhost/servlet-examples</strong> </p>
+<p/>
+<p>F??r die Deinstallation rufen Sie einfach das Uninstall-Skript auf: </p>
+<source>&gt;cd $DORADO_INSTALL_DIR/installer/tomcat-connector/bin<br/>&gt;./uninstall-jk-apache2-unix.sh </source>
+<p/>
+</section>
+<section id="N66689">
+<title>Apache2 unter Win32</title>
+<p>F??r den Apache2-Webserver unter Win32 geht es ??hnlich einfach. Hier muss auch nichts kompiliert werden:</p>
+<source>&gt;cd %DORADO_INSTALL_DIR%\installer\tomcat-connector\bin<br/>&gt;install-jk-apache2-win32.bat</source>
+<p/>
+<p>Auch hier sind die Beispielanwendungen dann ohne Portangabe erreichbar:</p>
+<p>
+<strong>http://localhost/jsp-examples</strong> <br/>
+<strong>http://localhost/servlet-examples</strong>
+</p>
+<p/>
+<p>
+Die Deinstallation funktioniert auch wie f??r den Apache2 unter Linux:
+</p>
+<source>
+&gt;cd %DORADO_INSTALL_DIR%\installer\tomcat-connector\bin<br/>&gt;install-jk-apache2-win32.bat
+</source>
+<p/>
+</section>
+<section id="N66751">
+<title>IIS unter WIN32</title>
+<p>F??r den Internet-Information-Server gibt es ebenfalls ein Installationsscript:</p>
+<source>&gt;cd %DORADO_INSTALL_DIR%\installer\tomcat-connector\bin<br/>&gt;install-jk-iis.bat</source>
+<p/>
+<p>Auch hier sind die Beispielanwendungen dann ohne Portangabe erreichbar:</p>
+<p>
+<strong>http://localhost/jsp-examples</strong> <br/>
+<strong>http://localhost/servlet-examples</strong>
+</p>
+<p/>
+<p>
+Die Deinstallation funktioniert auch wie f??r den Apache2:
+</p>
+<source>
+&gt;cd %DORADO_INSTALL_DIR%\installer\tomcat-connector\bin<br/>&gt;install-jk-iis.bat
+</source>
+<p/>
+<p>
+Sie k??nnen auch eine Servernummer angeben, in den der Connector installiert werden soll:
+</p>
+<source>&gt;install-jk-iis.bat [servernummer]</source>
+<p/>
+<p>Wenn Sie den Connector in alle Virtuellen Hosts eintragen wollen geben Sie als Servernummer entweder <code>0</code> oder <code>all</code> an:
+</p>
+<source>&gt;install-jk-iis.bat [0|all]</source>
+<p/>
+<p>Dies k??nnen Sie auch bei der Deinstallation verwenden. Sie k??nnen das Installationsscript so oft
+wie n??tig aufrufen. Vorhandene Konfigurationen werden automatisch aktualisiert.</p>
+</section>
+</body>
+</document>
+
+
+
+From nobody at sheep.berlios.de  Fri Aug 19 00:00:23 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Fri, 19 Aug 2005 00:00:23 +0200
+Subject: [Dorado-cvs] documentation build.xml,1.1,1.2
+Message-ID: <200508182200.j7IM0N625480@bat.berlios.de>
+
+Update of /cvsroot/dorado/documentation
+In directory sheep:/tmp/cvs-serv11001
+
+Modified Files:
+	build.xml 
+Log Message:
+Removing copy-task for ext docs
+
+Index: build.xml
+===================================================================
+RCS file: /cvsroot/dorado/documentation/build.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** build.xml	18 Aug 2005 14:24:05 -0000	1.1
+--- build.xml	18 Aug 2005 22:00:19 -0000	1.2
+***************
+*** 35,43 ****
+      		</fileset>
+      	</copy>
+-     	<copy todir="${project.build.dir}/${module.name}/src/documentation/content/xdocs">
+-     		<fileset dir="${module.name}/ext-docs">
+-     			<include name="images/**"/>
+-     		</fileset>
+-     	</copy>
+      </target>
+  	
+--- 35,38 ----
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:48:04 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:48:04 +0200
+Subject: [Dorado-cvs] core/conf dorado.properties,1.1,1.2
+Message-ID: <200508212148.j7LLm4615618@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/conf
+In directory sheep:/tmp/cvs-serv15016/conf
+
+Modified Files:
+	dorado.properties 
+Log Message:
+Adding property dorado.jmx.port
+
+Index: dorado.properties
+===================================================================
+RCS file: /cvsroot/dorado/core/conf/dorado.properties,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** dorado.properties	18 Aug 2005 14:27:28 -0000	1.1
+--- dorado.properties	21 Aug 2005 21:48:02 -0000	1.2
+***************
+*** 57,60 ****
+--- 57,64 ----
+  dorado.ajp.port=8009
+  
++ #The port for the access to the Tomcat's MBeanServer
++ #Use portnumber 0 if you deactivate the access to the MBeanServer. 
++ dorado.jmx.port=0
++ 
+  #Internal properties. You should only change these properties if you
+  #know what you do.
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:48:40 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:48:40 +0200
+Subject: [Dorado-cvs] core/conf dorado-install.xml,1.1,1.2
+Message-ID: <200508212148.j7LLme615622@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/conf
+In directory sheep:/tmp/cvs-serv15061/conf
+
+Modified Files:
+	dorado-install.xml 
+Log Message:
+Adding handling for the jmxremote.password
+
+Index: dorado-install.xml
+===================================================================
+RCS file: /cvsroot/dorado/core/conf/dorado-install.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** dorado-install.xml	18 Aug 2005 14:27:28 -0000	1.1
+--- dorado-install.xml	21 Aug 2005 21:48:38 -0000	1.2
+***************
+*** 50,53 ****
+--- 50,61 ----
+  			</fileset>
+      	</chmod>
++     	    	
++     	<chown file="${dorado.tomcat.base}/conf/jmxremote.password" 
++     		owner="${dorado.tomcat.user}"
++     		verbose="true"/>
++     	
++     	<chmod perm="go-rwx" 
++     	    verbose="true" 
++     		file="${dorado.tomcat.base}/conf/jmxremote.password"/>
+      	
+      	<antcall target="-install_service"/>
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:48:58 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:48:58 +0200
+Subject: [Dorado-cvs] core/izpack dorado.izpack.properties,1.1,1.2
+Message-ID: <200508212148.j7LLmw615628@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/izpack
+In directory sheep:/tmp/cvs-serv15110/izpack
+
+Modified Files:
+	dorado.izpack.properties 
+Log Message:
+Adding property dorado.jmx.port
+
+Index: dorado.izpack.properties
+===================================================================
+RCS file: /cvsroot/dorado/core/izpack/dorado.izpack.properties,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** dorado.izpack.properties	18 Aug 2005 14:27:25 -0000	1.1
+--- dorado.izpack.properties	21 Aug 2005 21:48:55 -0000	1.2
+***************
+*** 31,32 ****
+--- 31,36 ----
+  #The port the default http connector will listen to
+  dorado.http.port=$dorado_http_port
++ 
++ #The port for the access to the Tomcat's MBeanServer
++ #Use portnumber 0 if you deactivate the access to the MBeanServer. 
++ dorado.jmx.port=$dorado_jmx_port
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:49:33 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:49:33 +0200
+Subject: [Dorado-cvs] core/izpack input.xml,1.1,1.2
+Message-ID: <200508212149.j7LLnX615684@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/izpack
+In directory sheep:/tmp/cvs-serv15143/izpack
+
+Modified Files:
+	input.xml 
+Log Message:
+Adding field for dorado_jmx_port
+
+Index: input.xml
+===================================================================
+RCS file: /cvsroot/dorado/core/izpack/input.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** input.xml	18 Aug 2005 14:27:25 -0000	1.1
+--- input.xml	21 Aug 2005 21:49:31 -0000	1.2
+***************
+*** 82,85 ****
+--- 82,96 ----
+    				class="com.izforge.izpack.util.PortValidator" 
+    				txt="port.validator"/>	
++ 		</field>	
++ 		<space/>
++ 		<field type="rule" 
++ 			variable="dorado_jmx_port">
++ 			<description id="panel1.field6.description"/>
++   			<spec id="panel1.field6.label" 
++   				set="0:0:com.izforge.izpack.util.PortProcessor" 
++   				layout="N:5:5"/>
++   			<validator 
++   				class="com.izforge.izpack.util.PortValidator" 
++   				txt="port.validator"/>	
+  		</field>		
+  	</panel>
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:50:29 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:50:29 +0200
+Subject: [Dorado-cvs] core/tomcat/conf jmxremote.access,NONE,1.1 jmxremote.password,NONE,1.1
+Message-ID: <200508212150.j7LLoT615712@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/tomcat/conf
+In directory sheep:/tmp/cvs-serv15366/tomcat/conf
+
+Added Files:
+	jmxremote.access jmxremote.password 
+Log Message:
+Initial Import
+
+--- NEW FILE: jmxremote.access ---
+@dorado.admin.name@ readwrite
+
+--- NEW FILE: jmxremote.password ---
+@dorado.admin.name@ @dorado.admin.password@
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:50:46 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:50:46 +0200
+Subject: [Dorado-cvs] core/wrapper/linux/bin tomcat_service.sh,1.1,1.2
+Message-ID: <200508212150.j7LLok615716@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/wrapper/linux/bin
+In directory sheep:/tmp/cvs-serv15391/wrapper/linux/bin
+
+Modified Files:
+	tomcat_service.sh 
+Log Message:
+Adding handling for the jmxremote.password
+
+Index: tomcat_service.sh
+===================================================================
+RCS file: /cvsroot/dorado/core/wrapper/linux/bin/tomcat_service.sh,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** tomcat_service.sh	18 Aug 2005 14:27:26 -0000	1.1
+--- tomcat_service.sh	21 Aug 2005 21:50:44 -0000	1.2
+***************
+*** 41,44 ****
+--- 41,45 ----
+  			chown -R $TOMCAT_USER $TOMCAT_DIR
+  			chmod -R u+rw $TOMCAT_DIR
++ 			chmod og-rwx $TOMCAT_DIR/conf/jmxremote.password
+  			su $TOMCAT_USER -c ''$TOMCAT_DIR'/bin/wrapper.sh start'
+  		else
+***************
+*** 64,67 ****
+--- 65,69 ----
+  			chown -R $TOMCAT_USER $TOMCAT_DIR
+  			chmod -R u+rw $TOMCAT_DIR
++ 			chmod og-rwx $TOMCAT_DIR/conf/jmxremote.password
+  			su $TOMCAT_USER -c ''$TOMCAT_DIR'/bin/wrapper.sh console'
+  		else
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:50:02 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:50:02 +0200
+Subject: [Dorado-cvs] core/izpack/i18n deu.xml,1.1,1.2
+Message-ID: <200508212150.j7LLo2615699@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/izpack/i18n
+In directory sheep:/tmp/cvs-serv15217/izpack/i18n
+
+Modified Files:
+	deu.xml 
+Log Message:
+Adding i18n-messages for field dorado_jmx_port
+
+Index: deu.xml
+===================================================================
+RCS file: /cvsroot/dorado/core/izpack/i18n/deu.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** deu.xml	18 Aug 2005 14:27:28 -0000	1.1
+--- deu.xml	21 Aug 2005 21:50:00 -0000	1.2
+***************
+*** 49,52 ****
+--- 49,59 ----
+  	<str id="panel1.field5.label"
+  		txt="HTTP-Port:"/>
++ 	<str id="panel1.field6.description">
++ Hier k??nnen Sie den Port angeben, mit dem Sie auf den MBeanServer
++ des Tomcats zugreifen k??nnen. Geben Sie 0 ein, um diese Funktionalit??t 
++ zu deaktivieren.
++ 	</str>
++ 	<str id="panel1.field6.label"
++ 		txt="JMX-Port:"/>
+  		
+  	<str id="port.validator" 
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:51:21 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:51:21 +0200
+Subject: [Dorado-cvs] core/wrapper/linux/conf wrapper.conf,1.1,1.2
+Message-ID: <200508212151.j7LLpL615737@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/wrapper/linux/conf
+In directory sheep:/tmp/cvs-serv15429/wrapper/linux/conf
+
+Modified Files:
+	wrapper.conf 
+Log Message:
+Adding configuration for 
+- juli-logger
+- jmxremote
+
+Index: wrapper.conf
+===================================================================
+RCS file: /cvsroot/dorado/core/wrapper/linux/conf/wrapper.conf,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** wrapper.conf	18 Aug 2005 14:27:28 -0000	1.1
+--- wrapper.conf	21 Aug 2005 21:51:19 -0000	1.2
+***************
+*** 23,31 ****
+  wrapper.java.additional.4=-Djava.io.tmpdir=%TMPDIR%
+  wrapper.java.additional.5=-Dcatalina.config=file://%CONFDIR%/catalina.properties
+  #wrapper.java.additional.6=-Djava.security.manager
+  #wrapper.java.additional.7=-Djava.security.policy==%CONFDIR%/catalina.policy
+- wrapper.java.additional.6=-Djava.awt.headless=true
+- wrapper.java.additional.7=-Dfile.encoding=iso-8859-1
+- wrapper.java.additional.8=-server
+  
+  wrapper.java.initmemory=@dorado.memory.min@
+--- 23,40 ----
+  wrapper.java.additional.4=-Djava.io.tmpdir=%TMPDIR%
+  wrapper.java.additional.5=-Dcatalina.config=file://%CONFDIR%/catalina.properties
++ wrapper.java.additional.6=-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
++ wrapper.java.additional.7=-Djava.util.logging.config.file=%CONFDIR%/logging.properties
++ wrapper.java.additional.8=-Djava.awt.headless=true
++ wrapper.java.additional.9=-Dfile.encoding=iso-8859-1
++ wrapper.java.additional.10=-server
++ wrapper.java.additional.11=-Dcom.sun.management.jmxremote
++ wrapper.java.additional.12=-Dcom.sun.management.jmxremote.port=@dorado.jmx.port@
++ wrapper.java.additional.13=-Dcom.sun.management.jmxremote.ssl=false
++ wrapper.java.additional.14=-Dcom.sun.management.jmxremote.authenticate=true
++ wrapper.java.additional.15=-Dcom.sun.management.jmxremote.password.file=%CONFDIR%/jmxremote.password
++ wrapper.java.additional.16=-Dcom.sun.management.jmxremote.access.file=%CONFDIR%/jmxremote.access
++ 
+  #wrapper.java.additional.6=-Djava.security.manager
+  #wrapper.java.additional.7=-Djava.security.policy==%CONFDIR%/catalina.policy
+  
+  wrapper.java.initmemory=@dorado.memory.min@
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 21 23:51:36 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Sun, 21 Aug 2005 23:51:36 +0200
+Subject: [Dorado-cvs] core/wrapper/win32/conf wrapper.conf,1.1,1.2
+Message-ID: <200508212151.j7LLpa615744@bat.berlios.de>
+
+Update of /cvsroot/dorado/core/wrapper/win32/conf
+In directory sheep:/tmp/cvs-serv15454/wrapper/win32/conf
+
+Modified Files:
+	wrapper.conf 
+Log Message:
+Adding configuration for 
+- juli-logger
+- jmxremote
+
+Index: wrapper.conf
+===================================================================
+RCS file: /cvsroot/dorado/core/wrapper/win32/conf/wrapper.conf,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** wrapper.conf	18 Aug 2005 14:27:28 -0000	1.1
+--- wrapper.conf	21 Aug 2005 21:51:34 -0000	1.2
+***************
+*** 23,30 ****
+  wrapper.java.additional.4=-Djava.io.tmpdir=%TMPDIR%
+  wrapper.java.additional.5=-Dcatalina.config=file://%CONFDIR%/catalina.properties
+! #wrapper.java.additional.6=-Djava.security.manager
+! #wrapper.java.additional.7=-Djava.security.policy==%CONFDIR%/catalina.policy
+! wrapper.java.additional.6=-Djava.awt.headless=true
+! wrapper.java.additional.7=-Dfile.encoding=iso-8859-1
+  
+  wrapper.java.initmemory=@dorado.memory.min@
+--- 23,37 ----
+  wrapper.java.additional.4=-Djava.io.tmpdir=%TMPDIR%
+  wrapper.java.additional.5=-Dcatalina.config=file://%CONFDIR%/catalina.properties
+! wrapper.java.additional.6=-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+! wrapper.java.additional.7=-Djava.util.logging.config.file=%CONFDIR%/logging.properties
+! wrapper.java.additional.8=-Djava.awt.headless=true
+! wrapper.java.additional.9=-Dfile.encoding=iso-8859-1
+! wrapper.java.additional.10=-Dcom.sun.management.jmxremote
+! wrapper.java.additional.11=-Dcom.sun.management.jmxremote.port=@dorado.jmx.port@
+! wrapper.java.additional.12=-Dcom.sun.management.jmxremote.ssl=false
+! wrapper.java.additional.13=-Dcom.sun.management.jmxremote.authenticate=true
+! wrapper.java.additional.14=-Dcom.sun.management.jmxremote.password.file=%CONFDIR%/jmxremote.password
+! wrapper.java.additional.15=-Dcom.sun.management.jmxremote.access.file=%CONFDIR%/jmxremote.access
+! 
+  
+  wrapper.java.initmemory=@dorado.memory.min@
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 22 00:14:30 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Mon, 22 Aug 2005 00:14:30 +0200
+Subject: [Dorado-cvs] documentation/src/documentation/content/xdocs/docs properties.xml,1.1,1.2
+Message-ID: <200508212214.j7LMEU616302@bat.berlios.de>
+
+Update of /cvsroot/dorado/documentation/src/documentation/content/xdocs/docs
+In directory sheep:/tmp/cvs-serv17215/src/documentation/content/xdocs/docs
+
+Modified Files:
+	properties.xml 
+Log Message:
+Adding documentation of the new jmx property
+
+Index: properties.xml
+===================================================================
+RCS file: /cvsroot/dorado/documentation/src/documentation/content/xdocs/docs/properties.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** properties.xml	18 Aug 2005 14:24:05 -0000	1.1
+--- properties.xml	21 Aug 2005 22:14:27 -0000	1.2
+***************
+*** 167,170 ****
+--- 167,181 ----
+      </td>
+  </tr>
++ <tr>
++ <td>
++      <p>dorado.jmx.port</p>
++     </td>
++ <td>
++      <p>0</p>
++     </td>
++ <td>
++      <p>Der Port, mit dem Sie sich mit dem MBeanServer des Tomcats verbinden k??nnen.<br/>Der Wert <code>0</code> deaktiviert den Zugriff auf den MBeanServer.</p>
++     </td>
++ </tr>
+  </table>
+  <p/>
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 22 00:15:10 2005
+From: nobody at sheep.berlios.de (thorque)
+Date: Mon, 22 Aug 2005 00:15:10 +0200
+Subject: [Dorado-cvs] documentation status.xml,1.1,1.2
+Message-ID: <200508212215.j7LMFA616458@bat.berlios.de>
+
+Update of /cvsroot/dorado/documentation
+In directory sheep:/tmp/cvs-serv17276
+
+Modified Files:
+	status.xml 
+Log Message:
+Updating the project status
+
+Index: status.xml
+===================================================================
+RCS file: /cvsroot/dorado/documentation/status.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** status.xml	18 Aug 2005 14:24:05 -0000	1.1
+--- status.xml	21 Aug 2005 22:15:08 -0000	1.2
+***************
+*** 27,31 ****
+  
+  	<changes>
+! 		<release version="1.0-pre" date="never released">
+  			<action dev="thorque"
+  				context="installer"
+--- 27,44 ----
+  
+  	<changes>
+! 		<release version="1.0.1" date="Sept. 2005">
+! 			<action dev="thorque"
+! 				context="tomcat"
+! 				type="add">
+! 				Adding configuration for the JULI-Logger
+! 			</action>
+! 			<action dev="thorque"
+! 				context="tomcat"
+! 				type="add">
+! 				Adding configuration for access to the
+! 				MBeanServer
+! 			</action>			
+! 		</release>
+! 		<release version="1.0" date="08-21-2005">
+  			<action dev="thorque"
+  				context="installer"
+
+
+

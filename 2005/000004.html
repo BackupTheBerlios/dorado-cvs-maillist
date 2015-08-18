@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Dorado-cvs] documentation/src/documentation/content/xdocs/docs connector.xml,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/dorado-cvs/2005/index.html" >
+   <LINK REL="made" HREF="mailto:dorado-cvs%40lists.berlios.de?Subject=Re%3A%20%5BDorado-cvs%5D%20documentation/src/documentation/content/xdocs/docs%20connector.xml%2CNONE%2C1.1&In-Reply-To=%3C200508182159.j7ILxu625425%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Dorado-cvs] documentation/src/documentation/content/xdocs/docs connector.xml,NONE,1.1</H1>
+    <B>thorque</B> 
+    <A HREF="mailto:dorado-cvs%40lists.berlios.de?Subject=Re%3A%20%5BDorado-cvs%5D%20documentation/src/documentation/content/xdocs/docs%20connector.xml%2CNONE%2C1.1&In-Reply-To=%3C200508182159.j7ILxu625425%40bat.berlios.de%3E"
+       TITLE="[Dorado-cvs] documentation/src/documentation/content/xdocs/docs connector.xml,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 18 23:59:56 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[Dorado-cvs] documentation/src/documentation/content/xdocs/docs dev-guide.xml,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[Dorado-cvs] documentation build.xml,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/dorado/documentation/src/documentation/content/xdocs/docs
+In directory sheep:/tmp/cvs-serv10873/src/documentation/content/xdocs/docs
+
+Added Files:
+	connector.xml 
+Log Message:
+Initial Import
+
+--- NEW FILE: connector.xml ---
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE document PUBLIC &quot;-//APACHE//DTD Documentation V2.0//EN&quot; &quot;<A HREF="http://forrest.apache.org/dtd/document-v20.dtd">http://forrest.apache.org/dtd/document-v20.dtd</A>&quot;&gt;
+&lt;document&gt;
+&lt;header&gt;
+&lt;title&gt;Tomcat-Connector&lt;/title&gt;
+&lt;abstract&gt;Tomcat soll meistens nicht als vollwertiger Webserver verwendet werden (obwohl dies ohne weiteres m&#195;&#182;glich ist), sondern nur im Hintergrund arbeiten. Dazu muss der vorhandene Webserver mit dem Tomcat verbunden werden. Wie das geht beschreibt dieser Artikel.&lt;/abstract&gt;
+&lt;meta name=&quot;keywords&quot;&gt;webserver dorado tomcat installation jk mod_jk iis apache&lt;/meta&gt;
+&lt;meta name=&quot;description&quot;&gt;Anbindung des Tomcats an einen Webserver&lt;/meta&gt;
+&lt;meta name=&quot;author&quot;&gt;Thorsten Kamann&lt;/meta&gt;
+&lt;/header&gt;
+&lt;body&gt;
+&lt;section id=&quot;N66620&quot;&gt;
+&lt;title&gt;Einf&#195;&#188;hrung&lt;/title&gt;
+&lt;p&gt;Der Tomcat-Connector besteht aus 2 Einzelbestandteilen. Ein teil ist in Java geschrieben und ist bereits in Tomcat integriert. Der andere Teil ist in C geschrieben und stellt die Verbindung zwischen dem Webserver und Tomcat her.&lt;/p&gt;
+&lt;p&gt;Auf Linux/Unix- Systemen muss der C-Teil kompiliert werden. Auf Win32-Systemen existieren schon fertige Binaries. Den Kompiliervorgang st&#195;&#182;sst das Installationsskript an. Sie m&#195;&#188;ssen nur sicherstellen, dass ein GCC-Compiler und Utomake vorhanden sind.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id=&quot;N66633&quot;&gt;
+&lt;title&gt;Apache2 unter Linux&lt;/title&gt;
+&lt;p&gt;Das Installationsscript finden Sie unter &lt;code&gt;$DORADO_INSTALL_DIR/installer/tomcat-connector/bin/install-jk-apache2-unix.sh&lt;/code&gt;. Sie brauchen dieses Skript einfach nur ausf&#195;&#188;hren: &lt;/p&gt;
+&lt;source&gt;&gt;cd $DORADO_INSTALL_DIR/installer/tomcat-connector/bin&lt;br/&gt;&gt;./install-jk-apache2-unix.sh &lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;Nach Beendigung des Skripts k&#195;&#182;nnen Sie die Beispielanwendungen von Tomcat auch ohne Portangabe aufrufen: &lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;<A HREF="http://localhost/jsp-examples&lt;/strong">http://localhost/jsp-examples&lt;/strong</A>&gt; &lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;<A HREF="http://localhost/servlet-examples&lt;/strong">http://localhost/servlet-examples&lt;/strong</A>&gt; &lt;/p&gt;
+&lt;p/&gt;
+&lt;p&gt;F&#195;&#188;r die Deinstallation rufen Sie einfach das Uninstall-Skript auf: &lt;/p&gt;
+&lt;source&gt;&gt;cd $DORADO_INSTALL_DIR/installer/tomcat-connector/bin&lt;br/&gt;&gt;./uninstall-jk-apache2-unix.sh &lt;/source&gt;
+&lt;p/&gt;
+&lt;/section&gt;
+&lt;section id=&quot;N66689&quot;&gt;
+&lt;title&gt;Apache2 unter Win32&lt;/title&gt;
+&lt;p&gt;F&#195;&#188;r den Apache2-Webserver unter Win32 geht es &#195;&#164;hnlich einfach. Hier muss auch nichts kompiliert werden:&lt;/p&gt;
+&lt;source&gt;&gt;cd %DORADO_INSTALL_DIR%\installer\tomcat-connector\bin&lt;br/&gt;&gt;install-jk-apache2-win32.bat&lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;Auch hier sind die Beispielanwendungen dann ohne Portangabe erreichbar:&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;<A HREF="http://localhost/jsp-examples&lt;/strong">http://localhost/jsp-examples&lt;/strong</A>&gt; &lt;br/&gt;
+&lt;strong&gt;<A HREF="http://localhost/servlet-examples&lt;/strong">http://localhost/servlet-examples&lt;/strong</A>&gt;
+&lt;/p&gt;
+&lt;p/&gt;
+&lt;p&gt;
+Die Deinstallation funktioniert auch wie f&#195;&#188;r den Apache2 unter Linux:
+&lt;/p&gt;
+&lt;source&gt;
+&gt;<i>cd %DORADO_INSTALL_DIR%\installer\tomcat-connector\bin&lt;br/&gt;&gt;install-jk-apache2-win32.bat
+</I>&lt;/source&gt;
+&lt;p/&gt;
+&lt;/section&gt;
+&lt;section id=&quot;N66751&quot;&gt;
+&lt;title&gt;IIS unter WIN32&lt;/title&gt;
+&lt;p&gt;F&#195;&#188;r den Internet-Information-Server gibt es ebenfalls ein Installationsscript:&lt;/p&gt;
+&lt;source&gt;&gt;cd %DORADO_INSTALL_DIR%\installer\tomcat-connector\bin&lt;br/&gt;&gt;install-jk-iis.bat&lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;Auch hier sind die Beispielanwendungen dann ohne Portangabe erreichbar:&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;<A HREF="http://localhost/jsp-examples&lt;/strong">http://localhost/jsp-examples&lt;/strong</A>&gt; &lt;br/&gt;
+&lt;strong&gt;<A HREF="http://localhost/servlet-examples&lt;/strong">http://localhost/servlet-examples&lt;/strong</A>&gt;
+&lt;/p&gt;
+&lt;p/&gt;
+&lt;p&gt;
+Die Deinstallation funktioniert auch wie f&#195;&#188;r den Apache2:
+&lt;/p&gt;
+&lt;source&gt;
+&gt;<i>cd %DORADO_INSTALL_DIR%\installer\tomcat-connector\bin&lt;br/&gt;&gt;install-jk-iis.bat
+</I>&lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;
+Sie k&#195;&#182;nnen auch eine Servernummer angeben, in den der Connector installiert werden soll:
+&lt;/p&gt;
+&lt;source&gt;&gt;install-jk-iis.bat [servernummer]&lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;Wenn Sie den Connector in alle Virtuellen Hosts eintragen wollen geben Sie als Servernummer entweder &lt;code&gt;0&lt;/code&gt; oder &lt;code&gt;all&lt;/code&gt; an:
+&lt;/p&gt;
+&lt;source&gt;&gt;install-jk-iis.bat [0|all]&lt;/source&gt;
+&lt;p/&gt;
+&lt;p&gt;Dies k&#195;&#182;nnen Sie auch bei der Deinstallation verwenden. Sie k&#195;&#182;nnen das Installationsscript so oft
+wie n&#195;&#182;tig aufrufen. Vorhandene Konfigurationen werden automatisch aktualisiert.&lt;/p&gt;
+&lt;/section&gt;
+&lt;/body&gt;
+&lt;/document&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[Dorado-cvs] documentation/src/documentation/content/xdocs/docs dev-guide.xml,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[Dorado-cvs] documentation build.xml,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/dorado-cvs">More information about the Dorado-cvs
+mailing list</a><br>
+</body></html>

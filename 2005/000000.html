@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Dorado-cvs] core/tomcat/conf server.xml,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/dorado-cvs/2005/index.html" >
+   <LINK REL="made" HREF="mailto:dorado-cvs%40lists.berlios.de?Subject=Re%3A%20%5BDorado-cvs%5D%20core/tomcat/conf%20server.xml%2C1.1%2C1.2&In-Reply-To=%3C200508181512.j7IFCU613601%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Dorado-cvs] core/tomcat/conf server.xml,1.1,1.2</H1>
+    <B>thorque</B> 
+    <A HREF="mailto:dorado-cvs%40lists.berlios.de?Subject=Re%3A%20%5BDorado-cvs%5D%20core/tomcat/conf%20server.xml%2C1.1%2C1.2&In-Reply-To=%3C200508181512.j7IFCU613601%40bat.berlios.de%3E"
+       TITLE="[Dorado-cvs] core/tomcat/conf server.xml,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 18 17:12:30 CEST 2005</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Dorado-cvs] documentation/src/documentation/content/xdocs site.xml,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/dorado/core/tomcat/conf
+In directory sheep:/tmp/cvs-serv25128/tomcat/conf
+
+Modified Files:
+	server.xml 
+Log Message:
+Adding accesslogvalve config
+
+Index: server.xml
+===================================================================
+RCS file: /cvsroot/dorado/core/tomcat/conf/server.xml,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** server.xml	18 Aug 2005 14:27:26 -0000	1.1
+--- server.xml	18 Aug 2005 15:12:27 -0000	1.2
+***************
+*** 18,22 ****
+        		&lt;Realm 
+        			className=&quot;org.apache.catalina.realm.UserDatabaseRealm&quot;
+! 				resourceName=&quot;UserDatabase&quot; /&gt;
+        		&lt;Host 
+        			name=&quot;localhost&quot; 
+--- 18,30 ----
+        		&lt;Realm 
+        			className=&quot;org.apache.catalina.realm.UserDatabaseRealm&quot;
+! 				resourceName=&quot;UserDatabase&quot; /&gt;
+! 			&lt;Valve 
+! 				className=&quot;org.apache.catalina.valves.AccessLogValve&quot;
+! 				directory=&quot;logs/Catalina/localhost&quot;
+! 				prefix=&quot;access.&quot; 
+! 				suffix=&quot;.log&quot;
+! 				pattern=&quot;common&quot; 
+! 				resolveHosts=&quot;false&quot;
+! 			/&gt;
+        		&lt;Host 
+        			name=&quot;localhost&quot; 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Dorado-cvs] documentation/src/documentation/content/xdocs site.xml,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/dorado-cvs">More information about the Dorado-cvs
+mailing list</a><br>
+</body></html>
